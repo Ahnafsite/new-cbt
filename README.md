@@ -114,6 +114,39 @@ flowchart TD
 
 ---
 
+## 👥 User Roles & Flow (Use Cases)
+
+The application defines two primary roles, each with distinct permissions and workflows:
+
+### 1. Administrator (Admin / Teacher)
+The administrator holds full control over the application's master data, content creation, and examination orchestration.
+
+**Admin Workflow (Use Cases):**
+1.  **System Setup**: Logs in and configures general system settings.
+2.  **Master Data Preparation**: Creates Categories/Sub-Categories (e.g., *Mathematics -> Algebra*), defines Classes, and sets up Exam Rooms.
+3.  **Student Management**: Enrolls students manually or handles bulk imports via Excel, linking students to their respective classes.
+4.  **Content Creation (Question Bank)**: Authors questions using the rich-text Tiptap editor, uploads necessary images, assigns points, and tags difficulty levels.
+5.  **Exam Orchestration**:
+    *   Creates an **Exam Package** and fills it with selected questions from the bank.
+    *   Creates an **Exam Session**, assigning the exam package to specific classes or rooms.
+    *   Generates a unique **Session Token** to be distributed to students.
+    *   Generates and prints/distributes **Student Exam Cards** containing login credentials.
+6.  **Monitoring & Reporting**: After the exam, the Admin views auto-graded results, monitors active sessions, and exports final reports.
+
+### 2. Student (Examinee)
+The student's access is strictly isolated to the execution of examinations.
+
+**Student Workflow (Use Cases):**
+1.  **Authentication**: Logs into the CBT portal using the credentials provided on their **Student Exam Card**.
+2.  **Session Entry**: Enters the secure **Session Token** provided by the proctor/admin to access the scheduled exam.
+3.  **Exam Execution**: 
+    *   Navigates through questions in a distraction-free UI.
+    *   Monitors remaining time via the real-time exam timer.
+    *   Submits answers iteratively or sequentially.
+4.  **Submission**: Submits the final exam once completed or when the timer expires. (They do not typically see immediate results unless configured by the admin).
+
+---
+
 ## ✨ Features
 
 ### 1. User & Role Management
